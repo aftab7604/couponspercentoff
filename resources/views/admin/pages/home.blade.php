@@ -744,9 +744,9 @@
 @stop
 
 @push('script')
-    <script>
-        $(document).ready(function(){
-            alert("push nad jquery works");
-        })
-    </script>
+<script>
+$(document).ready(function(){
+    // alert("push nad jquery works");
+})
+</script>
 @endpush

@@ -11,7 +11,9 @@ $(function () {
 });
 
 function showNotification(colorName, text, placementFrom, placementAlign, animateEnter, animateExit) {
-    if (colorName === null || colorName === '') { colorName = 'bg-black'; }
+    if (placementFrom === null || placementFrom === '') { placementFrom = 'top'; }
+    if (placementAlign === null || placementAlign === '') { placementAlign = 'right'; }
+    if (colorName === null || colorName === '') { colorName = 'bg-red'; }
     if (text === null || text === '') { text = 'Turning standard Bootstrap alerts'; }
     if (animateEnter === null || animateEnter === '') { animateEnter = 'animated fadeInDown'; }
     if (animateExit === null || animateExit === '') { animateExit = 'animated fadeOutUp'; }

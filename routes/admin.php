@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -20,10 +21,12 @@ Route::post('login', [LoginController::class, 'authenticate'])->name('admin.auth
 Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 Route::get("create", [LoginController::class, 'create'])->name("admin.create");
 
-
-
 Route::middleware(['admin'])->group(function() {
     Route::get('/', [HomeController::class, 'index'])->name("admin");
+    Route::post("check/slug",[HomeController::class, 'check_slug'])->name("admin.checkslug");
+
+    Route::get('categories', [CategoryController::class, 'index'])->name("admin.categories");
+    Route::post('categories/add', [CategoryController::class, 'create'])->name("admin.categories.create");
 });
 
 
