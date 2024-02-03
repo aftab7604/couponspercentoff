@@ -44,7 +44,9 @@
                                     <td>{{$v['name']}}</td>
                                     <td>{{$v['slug']}}</td>
                                     <td>
-                                        <a href="javascript:void(0)" class="text-warning">Edit</a>  | <a href="javascript:void(0)" class="text-danger">Delete</a>
+                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" class="text-warning btn-edit">Edit</a>  
+                                        | 
+                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" class="text-danger btn-delete">Delete</a>
                                     </td>
                                 </tr>
                                 @empty
@@ -93,6 +95,40 @@
 @push('script')
 <script>
 $(document).ready(function(){
+    $(document).on("click",".btn-delete",function(){
+        var cat_id = $(this).data("id");
+        swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this record",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        }, function () {
+            $.ajax({
+                url:"{{route('admin.categories.delete')}}",
+                type:"POST",
+                data:{
+                    id:cat_id
+                },
+                success:function(response){
+                    if(response.success){
+                        toastr.success(response.msg)
+                        setTimeout(function () {
+                            window.location.reload(true)
+                        }, 2000);
+                    }else{
+                        toastr.error(response.error)
+                        setTimeout(function () {
+                            window.location.reload(true)
+                        }, 2000);
+                    }
+                }
+            })
+        });
+        
+    });
+
     $("#btn-add-category-popup").click(function(){
         $("#category_name,#category_slug").val("");
         $("#addCategoryModal").modal("show");

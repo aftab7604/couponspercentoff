@@ -56,13 +56,33 @@ class CategoryController extends Controller
                 $finalResult = [
                     "code"=>201,
                     'success' => false,
-                    'msg'=>'Something went wrong with inserting category.',
+                    'msg'=>null,
                     'error' => 'Something went wrong with inserting category.'
                 ];
             }
         }
 
         return $finalResult;
+    }
+
+    public function delete(Request $request){
+        $id = $request->id;
+        if(Category::where(["id"=>$id])->delete()){
+            $finalResult = [
+                "code"=>200,
+                'success' => true,
+                'msg'=> "Category deleted successfully",
+                'error' => null
+            ];
+        }else{
+            $finalResult = [
+                "code"=>201,
+                'success' => false,
+                'msg'=>null,
+                'error' => 'Something went wrong with deleting category.'
+            ];
+        }     
+        return $finalResult;   
     }
 
 }
