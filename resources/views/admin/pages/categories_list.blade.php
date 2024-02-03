@@ -20,7 +20,40 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="body">
-                        
+                        <table class="table table-bordered table-striped table-hover dataTable js-basic-example">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @forelse ($categories as $k=>$v)
+                                <tr>
+                                    <td>{{$k+1}}</td>
+                                    <td>{{$v['name']}}</td>
+                                    <td>{{$v['slug']}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" class="text-warning">Edit</a>  | <a href="javascript:void(0)" class="text-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="4">No Record Found</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
