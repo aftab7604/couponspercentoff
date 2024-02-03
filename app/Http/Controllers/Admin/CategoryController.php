@@ -18,7 +18,8 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function index(){
-        return view("admin.pages.categories_list");
+        $data['categories'] = Category::where(["status"=>1])->orderBy("id","desc")->get()->toArray();
+        return view("admin.pages.categories_list",$data);
     }
 
     public function create(Request $request){
