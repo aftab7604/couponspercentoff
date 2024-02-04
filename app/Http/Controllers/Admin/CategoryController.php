@@ -85,4 +85,48 @@ class CategoryController extends Controller
         return $finalResult;   
     }
 
+    public function update(Request $request){
+        $controls['id'] = $request->id;
+        $controls['category_name'] = $request->category_name;
+        $controls['category_slug'] = $request->category_slug;
+        $rules = [
+            "id"=>"required",
+            "category_name" => "required|unique:categories,name",
+            "category_slug" => "required|unique:categories,slug"
+        ];
+
+        $validator = Validator::make($controls,$rules);
+        if($validator->fails()){
+            $finalResult = [
+                "code"=>202,
+                'success' => false,
+                'msg'=>'Invalid Request - Validation erros',
+                'errors' => $validator->getMessageBag()->toArray()
+            ];
+        }else{
+            $updated = Category::where(["id"=>$controls['id']])->update([
+                "name"=>$controls['category_name'],
+                "slug"=>$controls['category_slug'],
+            ]);
+            
+            if($updated){
+                $finalResult = [
+                    "code"=>200,
+                    'success' => true,
+                    'msg'=>'Category updated successfylly',
+                    'error' => null
+                ];
+            }else{
+                $finalResult = [
+                    "code"=>201,
+                    'success' => false,
+                    'msg'=>null,
+                    'error' => 'Something went wrong with updating category.'
+                ];
+            }
+        }
+
+        return $finalResult;
+    }
+
 }
