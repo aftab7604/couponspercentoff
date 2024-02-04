@@ -28,6 +28,7 @@ Route::middleware(['admin'])->group(function() {
     Route::get('categories', [CategoryController::class, 'index'])->name("admin.categories");
     Route::post('categories/add', [CategoryController::class, 'create'])->name("admin.categories.create");
     Route::post('categories/delete', [CategoryController::class, 'delete'])->name("admin.categories.delete");
+    Route::post('categories/update', [CategoryController::class, 'update'])->name("admin.categories.update");
 });
 
 

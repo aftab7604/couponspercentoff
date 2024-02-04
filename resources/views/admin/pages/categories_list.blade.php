@@ -44,7 +44,7 @@
                                     <td>{{$v['name']}}</td>
                                     <td>{{$v['slug']}}</td>
                                     <td>
-                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" class="text-warning btn-edit">Edit</a>  
+                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" data-name="{{$v['name']}}" data-slug="{{$v['slug']}}" class="text-warning btn-edit">Edit</a>  
                                         | 
                                         <a href="javascript:void(0)" data-id="{{$v['id']}}" class="text-danger btn-delete">Delete</a>
                                     </td>
@@ -77,7 +77,7 @@
                             <input type="text" id="category_name" name="category_name" class="form-control" placeholder="Enter Category Name">
                         </div>
                         <div class="form-group">
-                            <label for="category_name">Category Slug</label>
+                            <label for="category_slug">Category Slug</label>
                             <input disabled type="text" id="category_slug" name="category_slug" class="form-control" placeholder="Enter Category Slug">
                         </div>
                     </div>
@@ -85,6 +85,35 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="btn-add-category" class="btn btn-default btn-round waves-effect">SAVE</button>
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Edit Category Modal --}}
+<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="title" id="editCategoryModalLabel">Edit Category</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="edit_category_name">Category Name</label>
+                            <input type="text" id="edit_category_name" name="edit_category_name" class="form-control" placeholder="Enter Category Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_category_slug">Category Slug</label>
+                            <input disabled type="text" id="edit_category_slug" name="edit_category_slug" class="form-control" placeholder="Enter Category Slug">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-update-category" class="btn btn-default btn-round waves-effect">SAVE</button>
                 <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
             </div>
         </div>
@@ -160,6 +189,67 @@ $(document).ready(function(){
                 data:{
                     category_name: category,
                     category_slug:slug
+                },
+                success: function(result){
+                    if(result.code == 200){ // success
+                        toastr.success(result.msg);
+                        setTimeout(() => {
+                            window.location.reload(true);
+                        }, 2000);
+                    }else if(result.code == 202){ // form erros
+                        $.each(result.errors,function(i,e){
+                            $.each(e,function(index,error){
+                                toastr.error(error)
+                            })
+                        })
+                    }else if(result.code == 201){ // toast erros
+                        toastr.error(result.error)
+                    }else{ //  unknow code
+                        toastr.error("Unknown Code");
+                    }
+                }
+            });
+        })
+    });
+
+    $(".btn-edit").click(function(){
+        var id = $(this).data("id");
+        var name = $(this).data("name");
+        var slug = $(this).data("slug");
+
+        $("#edit_category_name").val(name);
+        $("#edit_category_slug").val(slug);
+
+        $("#editCategoryModal").modal("show");
+
+        $("#edit_category_name").on("keyup",function(){
+            var cat_str = $(this).val();
+            $.ajax({
+                url:"{{route('admin.checkslug')}}",
+                type:"POST",
+                data:{
+                    type:"category",
+                    str:cat_str
+                },
+                success: function(result) {
+                    $("#edit_category_slug").val(result.slug)
+                    if(!result.success){
+                        toastr.warning(result.msg)
+                    }
+                }
+            });
+        })
+
+        $("#btn-update-category").click(function(){
+            var category = $("#edit_category_name").val();
+            var cat_slug = $("#edit_category_slug").val();
+            $.ajax({
+                url:  "{{route('admin.categories.update')}}",
+                type: 'POST',
+                data:{
+                    id:id,
+                    category_name: category,
+                    category_slug:cat_slug
                 },
                 success: function(result){
                     if(result.code == 200){ // success
