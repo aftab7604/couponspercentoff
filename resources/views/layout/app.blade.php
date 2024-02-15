@@ -1,22 +1,23 @@
 <!doctype html>
 <html class="no-js " lang="en">
 
-<!-- Mirrored from www.wrraptheme.com/templates/compass/html/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Sep 2019 07:03:50 GMT -->
 <head>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Find out best discount on the couponspercentoff">
+<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
+<meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
 
-<title>:: COUPONSPERCENTOFF ::</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<title>Save Big with Online Promo Codes - Coupons Percent Off</title>
+<link rel="icon" href="{{asset('assets/images/logo.jpeg')}}" type="image/x-icon">
 <!-- Favicon-->
 <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/plugins/morrisjs/morris.css')}}"/>
 <!-- Custom Css -->
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/hm-style.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/blog.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
 </head>
 
@@ -24,7 +25,7 @@
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="Compass"></div>
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="{{asset('assets/images/logo.jpeg')}}" width="100" height="50" alt="COUPONSPERCENTOFF"></div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -100,5 +101,5 @@ $(document).ready(function(){
     </script>    
 </body>
 
-<!-- Mirrored from www.wrraptheme.com/templates/compass/html/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Sep 2019 07:03:51 GMT -->
+
 </html>

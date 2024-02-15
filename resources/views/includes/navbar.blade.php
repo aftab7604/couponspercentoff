@@ -2,7 +2,7 @@
     <div class="col-12">        
         <div class="navbar-header">
             <a href="javascript:void(0);" class="h-bars"></a>
-            <a class="navbar-brand" href="index-2.html"><img src="assets/images/logo.svg" width="30" alt="Compass"><span class="m-l-10">Compass</span></a>
+            <a class="navbar-brand" href="{{route("home")}}"><img src="{{asset('assets/images/logo.jpeg')}}" style="width:100%" alt="COUPONSPERCENTOFF"></a>
         </div>
         <ul class="nav navbar-nav navbar-left">            
             <li class="hidden-sm-down">
@@ -15,8 +15,10 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
-                <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+            {{-- <li class="dropdown"> 
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    <i class="zmdi zmdi-notifications"></i>
+                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right slideDown">
                     <li class="header">NOTIFICATIONS</li>
@@ -76,8 +78,8 @@
                     </li>
                     <li class="footer"> <a href="javascript:void(0);">View All Notifications</a> </li>
                 </ul>
-            </li>
-            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
+            </li> --}}
+            {{-- <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
                 <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right slideDown">
@@ -143,12 +145,12 @@
                     </li>
                     <li class="footer"><a href="javascript:void(0);">View All</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li>
                 <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
             </li>
-            <li><a href="sign-in.html" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
-            <li class=""><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+            {{-- <li><a href="sign-in.html" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li> --}}
+            {{-- <li class=""><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li> --}}
         </ul>
     </div>
 </nav>

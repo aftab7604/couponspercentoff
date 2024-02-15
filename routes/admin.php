@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\StoreController;
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -29,6 +30,8 @@ Route::middleware(['admin'])->group(function() {
     Route::post('categories/add', [CategoryController::class, 'create'])->name("admin.categories.create");
     Route::post('categories/delete', [CategoryController::class, 'delete'])->name("admin.categories.delete");
     Route::post('categories/update', [CategoryController::class, 'update'])->name("admin.categories.update");
+
+    Route::get('stores', [StoreController::class, 'index'])->name("admin.stores");
 });
 
 
