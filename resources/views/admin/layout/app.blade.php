@@ -11,14 +11,20 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/sweetalert/sweetalert.css')}}"/>
+    <!-- Dropzone Css -->
+    <link rel="stylesheet" href="{{asset('assets/plugins/dropzone/dropzone.css')}}">
     <!-- JQuery DataTable Css -->
     <link rel="stylesheet" href="{{asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/plugins/morrisjs/morris.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/plugins/toastr/build/toastr.css')}}">
+
     <!-- Custom Css -->
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
+
+    {{-- <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script> --}}
+    <script src="{{asset('assets/plugins/ckeditor/ckeditor.js')}}"></script> <!-- Ckeditor --> 
     
     @stack('styles')
 </head>
@@ -57,6 +63,10 @@
 <script src="{{asset('assets/bundles/sparkline.bundle.js')}}"></script> <!-- Sparkline Plugin Js -->
 <script src="{{asset('assets/plugins/toastr/toastr.js')}}"></script>
 
+<script src="{{asset('assets/plugins/dropzone/dropzone.js')}}"></script> <!-- Dropzone Plugin Js --> 
+
+{{-- <script src="{{asset('assets/plugins/ckeditor/ckeditor.js')}}"></script> <!-- Ckeditor -->  --}}
+
 <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script> <!-- SweetAlert Plugin Js --> 
 
 <!-- Jquery DataTable Plugin Js --> 
@@ -68,11 +78,14 @@
 <script src="{{asset('assets/plugins/jquery-datatable/buttons/buttons.html5.min.js')}}"></script>
 <script src="{{asset('assets/plugins/jquery-datatable/buttons/buttons.print.min.js')}}"></script>
 
+
 <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
 <script src="{{asset('assets/js/pages/ui/notifications.js')}}"></script> <!-- Custom Js -->
 <script src="{{asset('assets/js/pages/index.js')}}"></script>
 <script src="{{asset('assets/js/pages/tables/jquery-datatable.js')}}"></script>
 <script src="{{asset('assets/js/pages/ui/dialogs.js')}}"></script>
+
+
 <script>
 $(document).ready(function(){
 	$.ajaxSetup({

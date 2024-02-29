@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 use App\Models\Category;
+use App\Models\Store;
 
 class HomeController extends Controller
 {
@@ -26,35 +27,34 @@ class HomeController extends Controller
         $str = $request->str;
         $slug = Str::slug($str, "-");
         if($type == 'category'){
-            $slugInfo = Category::where(['slug'=>$slug])->get()->first();
-            if(is_null($slugInfo)){
-                $finalResult = [
-                    "code"=>200,
-                    "success"=>true,
-                    "msg"=>"Valid Slug",
-                    'slug'=>$slug,
-                    "data"=>$slugInfo
-                ];
-            }else{
-                $finalResult = [
-                    "code"=>201,
-                    "success"=>false,
-                    "msg"=>"Slug is already taken",
-                    'slug'=>$slug,
-                    "data"=>$slugInfo
-                ];
-            }
-        }elseif($type == 'post'){
-            $finalResult = [
-                "code"=>201,
-                "success"=>false,
-                "msg"=>"Under Construction"
-            ];
+            $slugInfo = Category::where(['slug'=>$slug])->get()->first();   
+        }elseif($type == 'store'){
+            $slugInfo = Store::where(['slug'=>$slug])->get()->first();
         }else{
             $finalResult = [
                 "code"=>201,
                 "success"=>false,
                 "msg"=>"Invalid Request"
+            ];
+
+            return $finalResult;
+        }
+
+        if(is_null($slugInfo)){
+            $finalResult = [
+                "code"=>200,
+                "success"=>true,
+                "msg"=>"Valid Slug",
+                'slug'=>$slug,
+                "data"=>$slugInfo
+            ];
+        }else{
+            $finalResult = [
+                "code"=>201,
+                "success"=>false,
+                "msg"=>"Slug is already taken",
+                'slug'=>$slug,
+                "data"=>$slugInfo
             ];
         }
 
