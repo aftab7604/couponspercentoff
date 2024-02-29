@@ -32,6 +32,11 @@ Route::middleware(['admin'])->group(function() {
     Route::post('categories/update', [CategoryController::class, 'update'])->name("admin.categories.update");
 
     Route::get('stores', [StoreController::class, 'index'])->name("admin.stores");
+    Route::post('stores/add', [StoreController::class, 'create'])->name("admin.stores.create");
+    Route::post('stores/delete', [StoreController::class, 'delete'])->name("admin.stores.delete");
+    Route::post('stores/update', [StoreController::class, 'update'])->name("admin.stores.update");
+    Route::get("stores/get/{id}",[StoreController::class, 'get_by_id'])->name("admin.stores.get.by.id");
+
 });
 
 

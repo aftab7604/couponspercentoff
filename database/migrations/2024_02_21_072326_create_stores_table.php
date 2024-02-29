@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->string("title")->nullable();
+            $table->longText("description")->nullable();
+            $table->string('logo')->nullable();
+            $table->longText("meta")->nullable();
+            $table->unsignedInteger('status')->default(1);
             $table->timestamps();
         });
     }
