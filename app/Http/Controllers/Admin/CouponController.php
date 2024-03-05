@@ -20,22 +20,23 @@ use App\Models\Coupon;
 class CouponController extends Controller
 {
     public function index(){
+        $data['coupons'] = Coupon::with(['store','categories'])->get()->toArray();
+        $data['stores'] = Store::where(['status'=>1])->get()->toArray();
         $data['categories'] = Category::where(["status"=>1])->orderBy("id","desc")->get()->toArray();
         return view("admin.pages.coupon_list",$data);
     }
 
     public function create(Request $request){
         $controls['name'] = $request->name;
-        $controls['title'] = $request->title;
-        $controls['description'] = $request->description;
-        $controls['slug'] = $request->slug;
-        $controls['image'] = $request->image;
-        $controls['meta'] = $request->meta;
+        $controls['code'] = $request->code;
+        $controls['store'] = $request->store_id;
+        $controls['categories'] = $request->category_ids;
 
         $rules = [
             "name" => "required",
-            "slug" => "required|unique:stores,slug",
-            "image"=>"required|mimes:png,jpg,jpeg|max:2048"
+            "code" => "required|unique:coupons,code",
+            "store"=>"required",
+            "categories"=>"required"
         ];
 
         $validator = Validator::make($controls,$rules);
@@ -46,27 +47,23 @@ class CouponController extends Controller
                 'msg'=>'Invalid Request - Validation erros',
                 'errors' => $validator->getMessageBag()->toArray()
             ];
-        }else{
-            $file = $request->file("image");
-            $fileName = $file->hashName();
-            $destinationPath = "uploads/store";
-            $file->move($destinationPath,$fileName);
-        
-            $added = Store::create([
-                "logo"=>$fileName,
+        }else{  
+            $added = Coupon::create([
                 "name"=>$controls['name'],
-                "title"=>$controls['title'],
-                "description"=>$controls['description'],
-                "slug"=>$controls['slug'],
-                "meta"=>$controls['meta'],
+                "code"=>$controls['code'],
+                "store_id"=>$controls['store'],
                 "status"=>1
             ]);
             
             if($added){
+                $id = $added->id;
+
+                Coupon::find($id)->categories()->attach($controls['categories']);
+                
                 $finalResult = [
                     "code"=>200,
                     'success' => true,
-                    'msg'=>'Store added successfylly',
+                    'msg'=>'Coupon added successfylly -  with id '.$id,
                     'error' => null
                 ];
             }else{
@@ -74,7 +71,7 @@ class CouponController extends Controller
                     "code"=>201,
                     'success' => false,
                     'msg'=>null,
-                    'error' => 'Something went wrong with inserting store.'
+                    'error' => 'Something went wrong with inserting coupon.'
                 ];
             }
         }
@@ -84,7 +81,9 @@ class CouponController extends Controller
 
     public function delete(Request $request){
         $id = $request->id;
-        if(Coupon::where(["id"=>$id])->delete()){
+        $coupon = Coupon::find($id);
+        if($coupon->delete()){
+            $coupon->categories()->detach();
             $finalResult = [
                 "code"=>200,
                 'success' => true,
@@ -106,28 +105,21 @@ class CouponController extends Controller
         
         $controls['id'] = $request->id;
         $controls['name'] = $request->name;
-        $controls['slug'] = $request->slug;
-        $controls['title'] = $request->title;
-        $controls['description'] = $request->description;
-        $controls['image'] = $request->image;
-        $controls['meta'] = $request->meta;
-        $currentData = Store::where(["id"=>$controls['id']])->get()->first()->toArray();
+        $controls['code'] = $request->code;
+        $controls['store'] = $request->store_id;
+        $controls['categories'] = $request->category_ids;
 
-        
+        $currentData = Coupon::find($controls['id']); 
         $rules = [
             "id"=>"required",
             "name" => "required",
+            "store"=>"required",
+            "categories"=>"required",
         ];
 
-        if($currentData['slug'] != $controls['slug']){
+        if($currentData->code != $controls['code']){
             $rules = array_merge($rules,[
-                "slug" => "required|unique:stores,slug",
-            ]);
-        }
-
-        if (request()->hasFile('image')) {
-            $rules = array_merge($rules, [
-                "image"=>"mimes:png,jpg,jpeg|max:2048",
+                "code" => "required|unique:coupons,code",
             ]);
         }
 
@@ -143,30 +135,20 @@ class CouponController extends Controller
 
             $update_data = [
                 "name"=>$controls['name'],
-                "slug"=>$controls['slug'],
-                "title"=>$controls['title'],
-                "description"=>$controls['description'],
-                "meta"=>$controls['meta'],
+                "code"=>$controls['code'],
+                "store_id"=>$controls['store'],
             ];
-            
-            if (request()->hasFile('image')) {
-                $file = $request->file("image");
-                $fileName = $file->hashName();
-                $destinationPath = "uploads/store";
-                $file->move($destinationPath,$fileName);
-                File::delete(public_path($destinationPath."/".$currentData['logo']));
-                $update_data['logo'] = $fileName;
-            }
-
-            
-
-            $updated = Store::where(["id"=>$controls['id']])->update($update_data);
+        
+            $updated = Coupon::where(["id"=>$controls['id']])->update($update_data);
             
             if($updated){
+                $currentData->categories()->detach();
+                $currentData->categories()->attach($controls['categories']);
+
                 $finalResult = [
                     "code"=>200,
                     'success' => true,
-                    'msg'=>'Store updated successfylly',
+                    'msg'=>'Coupon updated successfylly',
                     'error' => null
                 ];
             }else{
@@ -174,7 +156,7 @@ class CouponController extends Controller
                     "code"=>201,
                     'success' => false,
                     'msg'=>null,
-                    'error' => 'Something went wrong with updating store.'
+                    'error' => 'Something went wrong with updating coupon.'
                 ];
             }
         }
@@ -183,14 +165,14 @@ class CouponController extends Controller
     }
 
     public function get_by_id($id){
-        $store = Store::where(['id'=>$id])->get()->first();
-        if($store){
+        $data = Coupon::with("categories")->where(['id'=>$id])->get()->first();
+        if($data){
             $finalResult = [
                 "code"=>200,
                 'success' => true,
                 'msg'=>"Data Found",
                 'errors' => null,
-                'data'=>$store
+                'data'=>$data
             ];
         }else{
             $finalResult = [

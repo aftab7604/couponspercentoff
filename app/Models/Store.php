@@ -18,4 +18,8 @@ class Store extends Model
         'meta',
         'status',
     ];
+
+    public function coupons(){
+        return $this->hasMany('App\Models\Coupon');
+    }
 }

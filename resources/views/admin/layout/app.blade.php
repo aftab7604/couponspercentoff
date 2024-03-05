@@ -11,6 +11,10 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/sweetalert/sweetalert.css')}}"/>
+    <!-- Multi Select Css -->
+    <link rel="stylesheet" href="{{asset('assets/plugins/multi-select/css/multi-select.css')}}">
+    <!-- Bootstrap Select Css -->
+    <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}" />
     <!-- Dropzone Css -->
     <link rel="stylesheet" href="{{asset('assets/plugins/dropzone/dropzone.css')}}">
     <!-- JQuery DataTable Css -->
@@ -62,6 +66,7 @@
 <script src="{{asset('assets/bundles/knob.bundle.js')}}"></script> <!-- Jquery Knob Plugin Js -->
 <script src="{{asset('assets/bundles/sparkline.bundle.js')}}"></script> <!-- Sparkline Plugin Js -->
 <script src="{{asset('assets/plugins/toastr/toastr.js')}}"></script>
+<script src="{{asset('assets/plugins/multi-select/js/jquery.multi-select.js')}}"></script> <!-- Multi Select Plugin Js --> 
 
 <script src="{{asset('assets/plugins/dropzone/dropzone.js')}}"></script> <!-- Dropzone Plugin Js --> 
 
