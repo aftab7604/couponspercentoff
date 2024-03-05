@@ -15,4 +15,13 @@ class Coupon extends Model
         'code',
         'status',
     ];
+
+    public function store(){
+        return $this->belongsTo('App\Models\Store');
+    }
+
+    public function categories(){
+        return $this->belongsToMany('App\Models\Category','category_coupon',"coupon_id","category_id");
+    }
+
 }

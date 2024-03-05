@@ -14,4 +14,8 @@ class Category extends Model
         'slug',
         'status',
     ];
+
+    public function coupons(){
+        return $this->belongsToMany('App\Models\Coupon','category_coupon',"category_id","coupon_id");
+    }
 }
