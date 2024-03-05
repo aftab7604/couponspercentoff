@@ -21,6 +21,7 @@
                     <li class="{{ request()->is('admin') ? 'active' : '' }}"><a href="{{route("admin")}}">Home</a> </li>
                     <li class="{{ request()->is('admin/categories') ? 'active' : '' }}"><a href="{{route('admin.categories')}}">Categories</a></li>
                     <li class="{{ request()->is('admin/stores') ? 'active' : '' }}"><a href="{{route('admin.stores')}}">Stores</a></li>
+                    <li class="{{ request()->is('admin/coupons') ? 'active' : '' }}"><a href="{{route('admin.coupons')}}">Coupons</a></li>
                 </ul>
             </li>
         </ul>

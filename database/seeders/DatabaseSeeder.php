@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             CategorySeeder::class,
             StoreSeeder::class,
+            CouponSeeder::class,
+            CategoryCouponSeeder::class,
         ]);
         
         // \App\Models\User::factory(10)->create();

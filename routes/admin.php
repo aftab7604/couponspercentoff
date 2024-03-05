@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\StoreController;
+use App\Http\Controllers\Admin\CouponController;
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -36,6 +38,12 @@ Route::middleware(['admin'])->group(function() {
     Route::post('stores/delete', [StoreController::class, 'delete'])->name("admin.stores.delete");
     Route::post('stores/update', [StoreController::class, 'update'])->name("admin.stores.update");
     Route::get("stores/get/{id}",[StoreController::class, 'get_by_id'])->name("admin.stores.get.by.id");
+
+    Route::get('coupons', [CouponController::class, 'index'])->name("admin.coupons");
+    Route::post('coupons/add', [CouponController::class, 'create'])->name("admin.coupons.create");
+    Route::post('coupons/delete', [CouponController::class, 'delete'])->name("admin.coupons.delete");
+    Route::post('coupons/update', [CouponController::class, 'update'])->name("admin.coupons.update");
+    Route::get("coupons/get/{id}",[CouponController::class, 'get_by_id'])->name("admin.coupons.get.by.id");
 
 });
 
