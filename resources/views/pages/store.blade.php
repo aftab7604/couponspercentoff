@@ -5,7 +5,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    {{-- <h2 class="heading-today">Today's Top Coupons And Discount Codes</h2> --}}
+                    <h2 class="heading-today">{{$store['name']}} Coupons & Promo Codes For {{date('d M, Y')}}</h2>
                 </div>
             </div>
         </div>
@@ -14,18 +14,18 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Today's Top Coupons And Discount Codes</strong> - {{count($coupons)}}</h2>
+                            <h2><strong>{{$store['title']}}</strong></h2>
                         </div>
                         <div class="body">
                             <ul class="comment-reply list-unstyled">
-                                @forelse ($coupons as $k=>$v)
+                                @forelse ($store['coupons'] as $k=>$v)
                                 <li class="row bg-light p-4 m-3 rounded">
                                     <div class="icon-box col-md-2 col-3">
-                                        <img class="img-fluid img-thumbnail" src="{{asset('uploads/store/'.$v['store']['logo'])}}" alt="store">
+                                        <img class="img-fluid img-thumbnail" src="{{asset('uploads/store/'.$store['logo'])}}" alt="store">
                                     </div>
                                     <div class="text-box col-md-7 col-5 p-l-0 p-r0">
                                        
-                                        <small>{{$v['store']['name']}}</small>
+                                        <small>{{$store['name']}}</small>
                                         <h5 class="m-b-0">{{$v['name']}}</h5>
                                         {{-- <ul class="list-inline">
                                             <li><a href="javascript:void(0)">Coupon used: 186 times</a></li>
@@ -40,7 +40,13 @@
                                     <h4>No Record Found</h4>
                                 @endforelse
                                 
-                            </ul>                                        
+                            </ul>         
+                            
+                            <div class="row p-4 m-3">
+                                <div class="col-md-12">
+                                    {!!$store['description']!!}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
