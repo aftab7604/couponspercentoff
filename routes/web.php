@@ -14,3 +14,4 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
+Route::get('/store/{slug}', [HomeController::class, 'store'])->name("home.store");

@@ -237,8 +237,8 @@ $(document).ready(function(){
             post_data.slug = $("#store_slug").val();
             post_data.name = $("#store_name").val();
             post_data.title = $("#store_title").val();
-            post_data.description = $("#store_description").val();
-            post_data.meta = $("#estore_meta").val();
+            post_data.description = CKEDITOR.instances['store_description'].getData();
+            post_data.meta = $("#store_meta").val();
 
             var fd = new FormData();
             fd.append("slug",post_data.slug);
@@ -323,7 +323,7 @@ $(document).ready(function(){
                         post_data.slug = $("#edit_store_slug").val();
                         post_data.name = $("#edit_store_name").val();
                         post_data.title = $("#edit_store_title").val();
-                        post_data.description = $("#edit_store_description").val();
+                        post_data.description = CKEDITOR.instances['edit_store_description'].getData();
                         post_data.meta = $("#edit_store_meta").val();
 
                         var fd = new FormData();
