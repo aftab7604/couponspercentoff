@@ -542,3 +542,8 @@
     </div>
 </section>    
 @endsection
+
+@push('meta')
+<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
+<meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+@endpush

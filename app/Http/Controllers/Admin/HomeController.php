@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 
 use App\Models\Category;
 use App\Models\Store;
+use App\Models\Blog;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,8 @@ class HomeController extends Controller
             $slugInfo = Category::where(['slug'=>$slug])->get()->first();   
         }elseif($type == 'store'){
             $slugInfo = Store::where(['slug'=>$slug])->get()->first();
+        }elseif($type == 'blog'){
+            $slugInfo = Blog::where(['slug'=>$slug])->get()->first();
         }else{
             $finalResult = [
                 "code"=>201,

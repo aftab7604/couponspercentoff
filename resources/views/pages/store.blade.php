@@ -63,9 +63,12 @@
                                 @foreach ($stores as $k=>$v)
                                 <div class="col-md-2 p-2">
                                     <a href="{{route('home.store',$v['slug'])}}" class="text-black">
-                                    <div class="border rounded text-center">
-                                        <img src="{{asset('uploads/store/'.$v['logo'])}}" class="img img-fluid d-block" style="width:100%; height:100%;" alt="logo">
-                                        <span>{{$v['name']}}</span>
+                                    <div class="border rounded text-center embed-responsive embed-responsive-1by1 ">
+                                        <div class="embed-responsive-item store-div">
+                                            <img src="{{asset('uploads/store/'.$v['logo'])}}" class="img img-fluid d-block" alt="logo">
+                                            <br>
+                                            <span>{{$v['name']}}</span>
+                                        </div>
                                     </div>
                                     </a>
                                 </div>
@@ -80,3 +83,22 @@
     </div>
 </section>  
 @endsection
+
+@push('meta')
+<!-- store meta -->
+<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
+<meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+@endpush
+
+@push('styles')
+<style>
+    .store-div img{
+        height:70%;
+    }
+    .store-div span{
+        font-weight: bold;
+    }
+</style>
+    
+@endpush
+
