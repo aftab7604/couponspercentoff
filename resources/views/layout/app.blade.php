@@ -6,8 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
-<meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+@stack("meta")
 
 <title>Save Big with Online Promo Codes - Coupons Percent Off</title>
 <link rel="icon" href="{{asset('assets/images/logo.jpeg')}}" type="image/x-icon">
@@ -19,6 +18,7 @@
 <link rel="stylesheet" href="{{asset('assets/css/hm-style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/blog.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
+@stack("styles")
 </head>
 
 <body class="theme-cyan index2">

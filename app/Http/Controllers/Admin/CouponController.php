@@ -63,7 +63,7 @@ class CouponController extends Controller
                 $finalResult = [
                     "code"=>200,
                     'success' => true,
-                    'msg'=>'Coupon added successfylly -  with id '.$id,
+                    'msg'=>'Coupon added successfylly',
                     'error' => null
                 ];
             }else{

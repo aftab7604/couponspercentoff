@@ -18,4 +18,8 @@ class Category extends Model
     public function coupons(){
         return $this->belongsToMany('App\Models\Coupon','category_coupon',"category_id","coupon_id");
     }
+
+    public function blogs(){
+        return $this->belongsToMany('App\Models\Blog','blog_category',"category_id","blog_id");
+    }
 }
