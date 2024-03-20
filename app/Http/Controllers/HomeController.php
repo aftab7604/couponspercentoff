@@ -15,6 +15,7 @@ use App\Models\Category;
 use App\Models\Store;
 use App\Models\Coupon;
 use App\Models\Blog;
+use App\Models\Page;
 
 class HomeController extends Controller
 {
@@ -45,4 +46,29 @@ class HomeController extends Controller
         $data['stores'] = $category->coupons()->with('store')->get()->pluck('store')->unique('id')->toArray(); 
         return view("pages.category",$data);        
     }
+
+    public function termsandconditions(){
+        $data['page'] = Page::where(['slug'=>'terms-and-conditions'])->first()->toArray();
+        return view("pages.terms-and-conditions",$data);
+    }
+
+    public function privacypolicy(){
+        $data['page'] = Page::where(['slug'=>'privacy-policy'])->first()->toArray();
+        return view("pages.privacy-policy",$data);
+    }
+
+    public function disclaimer(){
+        $data['page'] = Page::where(['slug'=>'disclaimer'])->first()->toArray();
+        return view("pages.disclaimer",$data);
+    }
+
+    public function aboutus(){
+        $data['page'] = Page::where(['slug'=>'about-us'])->first()->toArray();
+        return view("pages.about-us",$data);
+    }
+
+    public function contactus(){
+        $data['page'] = Page::where(['slug'=>'contact-us'])->first()->toArray();
+        return view("pages.contact-us",$data);
+    }    
 }

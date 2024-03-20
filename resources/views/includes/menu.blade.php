@@ -1,10 +1,12 @@
 <div class="menu-container">
     <div class="menu">
         <ul>
-            <li><a href="{{route("home")}}">HOME</a></li>
-            <li><a href="{{route("home")}}">COUPONS</a></li>
-            <li><a href="{{route("home")}}">BLOG</a></li>
-            <li><a href="{{route("home")}}">ABOUT</a></li>
+            <li><a href="{{route("home")}}">Home</a></li>
+            <li><a href="{{route("home.terms-and-conditions")}}">Terms & Conditions</a></li>
+            <li><a href="{{route("home.privacy-policy")}}">Privacy Policy</a></li>
+            <li><a href="{{route("home.disclaimer")}}">Disclaimer</a></li>
+            <li><a href="{{route("home.about-us")}}">About Us</a></li>
+            <li><a href="{{route("home.contact-us")}}">Contact Us</a></li>
             
             {{-- <li><a href="javascript:void(0)">UI Kit</a>
                 <ul>

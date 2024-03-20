@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,10 @@ Route::middleware(['admin'])->group(function() {
     Route::post('blogs/delete', [BlogController::class, 'delete'])->name("admin.blogs.delete");
     Route::post('blogs/update', [BlogController::class, 'update'])->name("admin.blogs.update");
     Route::get("blogs/get/{id}",[BlogController::class, 'get_by_id'])->name("admin.blogs.get.by.id");
+
+    Route::get('pages', [PageController::class, 'index'])->name("admin.pages");
+    Route::post('pages/update', [PageController::class, 'update'])->name("admin.pages.update");
+    Route::get("pages/get/{id}",[PageController::class, 'get_by_id'])->name("admin.pages.get.by.id");
 
 });
 

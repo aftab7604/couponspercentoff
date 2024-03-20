@@ -42,7 +42,7 @@
 @include('includes.right_sidebar')
 
 <!-- Chat-launcher -->
-@include('includes.chat_launcher')
+{{-- @include('includes.chat_launcher') --}}
 
 @yield('content')
 

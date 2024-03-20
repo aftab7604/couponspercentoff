@@ -23,6 +23,7 @@
                     <li class="{{ request()->is('admin/stores') ? 'active' : '' }}"><a href="{{route('admin.stores')}}">Stores</a></li>
                     <li class="{{ request()->is('admin/coupons') ? 'active' : '' }}"><a href="{{route('admin.coupons')}}">Coupons</a></li>
                     <li class="{{ request()->is('admin/blogs') ? 'active' : '' }}"><a href="{{route('admin.blogs')}}">Blogs</a></li>
+                    <li class="{{ request()->is('admin/pages') ? 'active' : '' }}"><a href="{{route('admin.pages')}}">Pages</a></li>
                 </ul>
             </li>
         </ul>
