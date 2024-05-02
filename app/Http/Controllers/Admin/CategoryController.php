@@ -67,21 +67,32 @@ class CategoryController extends Controller
 
     public function delete(Request $request){
         $id = $request->id;
-        if(Category::where(["id"=>$id])->delete()){
-            $finalResult = [
-                "code"=>200,
-                'success' => true,
-                'msg'=> "Category deleted successfully",
-                'error' => null
-            ];
+        $category = Category::where("id",$id)->with(['coupons','blogs'])->first()->toArray();
+       
+        if(empty($category['coupons']) && empty($category['blogs'])){
+            if(Category::where(["id"=>$id])->delete()){
+                $finalResult = [
+                    "code"=>200,
+                    'success' => true,
+                    'msg'=> "Category deleted successfully",
+                    'error' => null
+                ];
+            }else{
+                $finalResult = [
+                    "code"=>201,
+                    'success' => false,
+                    'msg'=>null,
+                    'error' => 'Something went wrong with deleting category.'
+                ];
+            }  
         }else{
             $finalResult = [
                 "code"=>201,
                 'success' => false,
                 'msg'=>null,
-                'error' => 'Something went wrong with deleting category.'
+                'error' => 'Category is associated with a blog or coupon.'
             ];
-        }     
+        }   
         return $finalResult;   
     }
 

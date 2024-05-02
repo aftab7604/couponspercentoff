@@ -25,7 +25,8 @@ class BlogSeeder extends Seeder
             'slug'=>Str::slug("Maximizing your savings with coupons and promo codes", "-"),
             'content'=>"<h2>Maximizing your savings</h2><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, placeat!",
             'focus_keyword'=>"Maximizing your savings",
-            'meta'=>"",
+            'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
             'status'=>1,
         ];
 
@@ -35,7 +36,8 @@ class BlogSeeder extends Seeder
             'slug'=>Str::slug("How to Save Money on Shopping - Expert Guide", "-"),
             'content'=>"<h2>How to Save Money on Shopping - Expert Guide</h2><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, placeat!",
             'focus_keyword'=>"How to Save Money",
-            'meta'=>"",
+            'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
             'status'=>1,
         ];
 
@@ -45,7 +47,8 @@ class BlogSeeder extends Seeder
             'slug'=>Str::slug("Expert Guide to How to get discounts on shopping", "-"),
             'content'=>"<h2>Expert Guide to How to get discounts on shopping</h2><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, placeat!",
             'focus_keyword'=>"How to get discounts on shopping",
-            'meta'=>"",
+            'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
             'status'=>1,
         ];
 

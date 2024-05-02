@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
@@ -21,5 +22,18 @@ class Store extends Model
 
     public function coupons(){
         return $this->hasMany('App\Models\Coupon');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($store) {
+            // Delete related coupons and categories associated with the coupons
+            $store->coupons()->each(function ($coupon) {
+                $coupon->categories()->detach();
+                $coupon->delete();
+            });
+        });
     }
 }
