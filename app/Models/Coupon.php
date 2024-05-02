@@ -23,5 +23,4 @@ class Coupon extends Model
     public function categories(){
         return $this->belongsToMany('App\Models\Category','category_coupon',"coupon_id","category_id");
     }
-
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
+use App\Models\Coupon;
 use App\Models\Category;
 use App\Models\Store;
 
@@ -84,7 +85,9 @@ class StoreController extends Controller
 
     public function delete(Request $request){
         $id = $request->id;
-        if(Store::where(["id"=>$id])->delete()){
+        $store = Store::find($id);
+        if($store){
+            $store->delete();
             $finalResult = [
                 "code"=>200,
                 'success' => true,
