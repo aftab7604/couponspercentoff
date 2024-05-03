@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('/store/{slug}', [HomeController::class, 'store'])->name("home.store");
+Route::get('/blogs', [HomeController::class, 'blogs'])->name("home.blogs");
 Route::get('/blog/{slug}', [HomeController::class, 'blog'])->name("home.blog");
 Route::get('/category/{slug}', [HomeController::class, 'category'])->name("home.category");
 

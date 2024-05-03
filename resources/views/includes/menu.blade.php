@@ -2,6 +2,7 @@
     <div class="menu">
         <ul>
             <li><a href="{{route("home")}}">Home</a></li>
+            <li><a href="{{route("home.blogs")}}">Blog</a></li>
             <li><a href="{{route("home.terms-and-conditions")}}">Terms & Conditions</a></li>
             <li><a href="{{route("home.privacy-policy")}}">Privacy Policy</a></li>
             <li><a href="{{route("home.disclaimer")}}">Disclaimer</a></li>
