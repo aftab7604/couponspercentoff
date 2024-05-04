@@ -18,6 +18,21 @@
 <link rel="stylesheet" href="{{asset('assets/css/hm-style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/blog.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
+<style>
+  /* Additional CSS for styling */
+  .footer-section {
+    padding: 20px;
+    color: #fff;
+    background-color: #333;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 100%;
+  }
+</style>
 @stack("styles")
 </head>
 
@@ -45,6 +60,9 @@
 {{-- @include('includes.chat_launcher') --}}
 
 @yield('content')
+
+<!-- Footer -->
+@include('includes.footer')
 
 <!-- Jquery Core Js --> 
 <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js --> 
