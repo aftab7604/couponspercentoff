@@ -3,10 +3,19 @@
     font-size: 30px;
     padding: 10px;                
   }
+  .links ul li{
+    display: block;
+  }
+  .footer-content h6{
+    margin-bottom: 0px;
+  }
+  .footer-content h6 hr{
+    border: 2px solid white;
+  }
 </style>
 <footer class="footer">  
   <div class="row">
-    <div class="col-md-4 footer-section">
+    <div class="col-md-4 col-sm-4 footer-section">
       <div class="footer-content">
         <div class="row">
           <div class="col-md-12">
@@ -44,23 +53,66 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 text-center">
             For Business or Blog post contact</br>
             <a href="mailto:admin@couponpercentoff.com">admin@couponpercentoff.com</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4 footer-section">
-      <div class="footer-content">
-        <h3>Section 2</h3>
-        <p>Content for section 2 goes here.</p>
+    <div class="col-md-4 col-sm-4 footer-section">
+      <div class="footer-content links">
+        <h6>Links<hr></h6>
+        <ul>
+          <li>
+            <a href="{{route('home')}}">Home</a>
+          </li>
+          <li>
+            <a href="{{route('home.blogs')}}">Blog</a>
+          </li>
+          <li>
+            <a href="{{route('home.terms-and-conditions')}}">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="{{route('home.privacy-policy')}}">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="{{route('home.disclaimer')}}">Disclaimer</a>
+          </li>
+          <li>
+            <a href="{{route('home.about-us')}}">About Us</a>
+          </li>
+          <li>
+            <a href="{{route('home.contact-us')}}">Contact Us</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="col-md-4 footer-section">
-      <div class="footer-content">
-        <h3>Section 3</h3>
-        <p>Content for section 3 goes here.</p>
+    <div class="col-md-4 col-sm-4 footer-section">
+      <div class="footer-content links">
+        <h6>Categories<hr></h6>
+        <ul>
+          <li>
+            <a href="{{route('home.category','automotive')}}">Automotive</a>
+          </li>
+          <li>
+            <a href="{{route('home.category','sports-fitness-outdoors')}}">SPORTS, FITNESS & OUTDOORS</a>
+          </li>
+          <li>
+            <a href="{{route('home.category','technology')}}">TECHNOLOGY</a>
+          </li>
+          <li>
+            <a href="{{route('home.category','home-and-garden')}}">HOME AND GARDEN</a>
+          </li>
+          <li>
+            <a href="{{route('home.category','legal-services')}}">LEGAL SERVICES</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-12 footer-section">
+      <div class="footer-content text-center">
+        Copyright © 2022 – {{date('Y')}} Coupon Percent Off
       </div>
     </div>
   </div>
