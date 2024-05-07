@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             For Business or Blog post contact</br>
-            <a href="mailto:admin@couponpercentoff.com">admin@couponpercentoff.com</a>
+            <a href="mailto:admin@couponpercentoff.com">admin@couponspercentoff.com</a>
           </div>
         </div>
       </div>
