@@ -31,14 +31,14 @@
                             </ul> --}}
                         </div>                    
                         <div class="body">
-                            <div class="img-post m-b-15">
+                            {{-- <div class="img-post m-b-15">
                                 <img src="{{asset('uploads/blog/'.$blog['image'])}}" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="blog-content">
                                 {!! $blog['content'] !!}
                             </div>                        
