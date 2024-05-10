@@ -30,7 +30,12 @@ class HomeController extends Controller
     public function store($slug){
         $data['store'] = Store::where(['slug'=>$slug,'status'=>1])->with("coupons")->get()->first()->toArray();
         $data['stores'] = Store::where(['status'=>1])->with("coupons")->get()->toArray();
-        // dd($data['store']);
+        $data['copy_coupon'] = null;
+        if(isset($_GET['c']) && !empty($_GET['c'])){
+            $coupon = Coupon::where("id",$_GET['c'])->first()->toArray();
+            $data['copy_coupon'] = $coupon;
+        }
+        
         return view("pages.store",$data);
     }
 

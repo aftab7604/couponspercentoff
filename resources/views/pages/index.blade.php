@@ -33,7 +33,7 @@
                                         </ul> --}}
                                     </div>
                                     <div class="col-md-3 col-3">
-                                        <button class="btn btn-info btn-block">{{$v['code']}}</button>
+                                        <a href="{{url('store/'.$v['store']['slug'])}}?c={{$v['id']}}" class="btn btn-info btn-block coupon">{{$v['code']}}</a>
                                     </div>
                                 </li>    
                                 @empty
@@ -152,24 +152,4 @@
 @push('meta')
 <meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
 <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
-@endpush
-
-@push("script")
-<script>
-$(document).ready(function() {
-    $('#copy-btn').click(function() {
-        var btn = $(this);
-        var text = $('#copy-text').val();
-        var tempInput = $('<input>');
-        $('body').append(tempInput);
-        tempInput.val(text).select();
-        document.execCommand('copy');
-        tempInput.remove();
-        btn.html("Copied");
-        setTimeout(function (){
-            btn.html("Copy");
-        }, 2000)
-    });
-});
-</script>
 @endpush

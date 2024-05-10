@@ -59,6 +59,8 @@
                                         <a href="javascript:void(0)" data-id="{{$v['id']}}" data-name="{{$v['name']}}" data-slug="{{$v['slug']}}" class="text-warning btn-edit">Edit</a>  
                                         | 
                                         <a href="javascript:void(0)" data-id="{{$v['id']}}" class="text-danger btn-delete">Delete</a>
+                                        |
+                                        <a href="{{url('store/'.$v['slug'])}}" class="text-success" target="_blank">View</a>
                                     </td>
                                 </tr>
                                 @empty
