@@ -22,26 +22,31 @@ class CategorySeeder extends Seeder
         $data[] = [
             'name'=>"Automotive",
             'slug'=>Str::slug("Automotive", "-"),
+            'logo'=>"no-image.png",
             'status'=>1,
         ];
         $data[] = [
             'name'=>"Sports, Fitness & Outdoors",
             'slug'=>Str::slug("Sports, Fitness & Outdoors", "-"),
+            'logo'=>"no-image.png",
             'status'=>1,
         ];
         $data[] = [
             'name'=>"Technology",
             'slug'=>Str::slug("Technology", "-"),
+            'logo'=>"no-image.png",
             'status'=>1,
         ];
         $data[] = [
             'name'=>"Home and Garden",
             'slug'=>Str::slug("Home and Garden", "-"),
+            'logo'=>"no-image.png",
             'status'=>1,
         ];
         $data[] = [
             'name'=>"Legal Services",
             'slug'=>Str::slug("Legal Services", "-"),
+            'logo'=>"no-image.png",
             'status'=>1,
         ];
        

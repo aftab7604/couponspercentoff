@@ -26,7 +26,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Content</th>
+                                    {{-- <th>Content</th> --}}
                                     <th>Meta</th>
                                     <th>Action</th>
                                 </tr>
@@ -36,7 +36,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Content</th>
+                                    {{-- <th>Content</th> --}}
                                     <th>Meta</th>
                                     <th>Action</th>
                                 </tr>
@@ -47,15 +47,16 @@
                                     <td>{{$k+1}}</td>
                                     <td>{{$v['name']}}</td>
                                     <td>{{$v['slug']}}</td>
-                                    <td>{{$v['content']}}</td>
+                                    {{-- <td>{{$v['content']}}</td> --}}
                                     <td>{{$v['meta']}}</td>
                                     <td>
-                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" data-name="{{$v['name']}}" data-slug="{{$v['slug']}}" class="text-warning btn-edit">Edit</a>  
+                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" data-name="{{$v['name']}}" data-slug="{{$v['slug']}}" class="text-warning btn-edit">Edit</a> |  
+                                        <a href="{{url($v['slug'])}}" class="text-success" target="_blank">View</a>
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="6">No Record Found</td>
+                                    <td colspan="5">No Record Found</td>
                                 </tr>
                                 @endforelse
                             </tbody>

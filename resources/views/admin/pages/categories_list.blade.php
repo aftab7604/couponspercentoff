@@ -44,9 +44,11 @@
                                     <td>{{$v['name']}}</td>
                                     <td>{{$v['slug']}}</td>
                                     <td>
-                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" data-name="{{$v['name']}}" data-slug="{{$v['slug']}}" class="text-warning btn-edit">Edit</a>  
+                                        <a href="javascript:void(0)" data-id="{{$v['id']}}" data-name="{{$v['name']}}" data-slug="{{$v['slug']}}" data-logo="{{$v['logo']}}" class="text-warning btn-edit">Edit</a>  
                                         | 
                                         <a href="javascript:void(0)" data-id="{{$v['id']}}" class="text-danger btn-delete">Delete</a>
+                                        |
+                                        <a href="{{url('category/'.$v['slug'])}}" class="text-success" target="_blank">View</a>
                                     </td>
                                 </tr>
                                 @empty
@@ -72,6 +74,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="file">Image</label>
+                            <input name="file" id="file" type="file" class="form-control"/>
+                        </div>
                         <div class="form-group">
                             <label for="category_name">Category Name</label>
                             <input type="text" id="category_name" name="category_name" class="form-control" placeholder="Enter Category Name">
@@ -101,6 +107,13 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="edit_category_file">
+                                <img src="#" alt="" class="img img-fluid w-100" id="logo">
+                            </label>
+                            <input type="file" name="edit_category_file" id="edit_category_file" class="form-control">
+                        </div>
+
                         <div class="form-group">
                             <label for="edit_category_name">Category Name</label>
                             <input type="text" id="edit_category_name" name="edit_category_name" class="form-control" placeholder="Enter Category Name">
@@ -159,7 +172,7 @@ $(document).ready(function(){
     });
 
     $("#btn-add-category-popup").click(function(){
-        $("#category_name,#category_slug").val("");
+        $("#category_name,#category_slug,#file").val("");
         $("#addCategoryModal").modal("show");
 
         $("#category_name").on("keyup",function(){
@@ -183,13 +196,22 @@ $(document).ready(function(){
         $("#btn-add-category").click(function(){
             var category = $("#category_name").val();
             var slug = $("#category_slug").val();
+            
+            var fd = new FormData();
+            fd.append("category_name",category);
+            fd.append("category_slug",slug);
+            var img = $("#file")[0].files;
+            if(img.length > 0 ){
+                fd.append("image",img[0]);
+            }
+          
             $.ajax({
                 url:  "{{route('admin.categories.create')}}",
                 type: 'POST',
-                data:{
-                    category_name: category,
-                    category_slug:slug
-                },
+                data:fd,
+                contentType:false,
+                processData:false,
+                dataType:"json",
                 success: function(result){
                     if(result.code == 200){ // success
                         toastr.success(result.msg);
@@ -216,9 +238,11 @@ $(document).ready(function(){
         var id = $(this).data("id");
         var name = $(this).data("name");
         var slug = $(this).data("slug");
+        var logo = $(this).data("logo");
 
         $("#edit_category_name").val(name);
         $("#edit_category_slug").val(slug);
+        $("#logo").attr("src","{{asset('uploads/category')}}/"+logo);
 
         $("#editCategoryModal").modal("show");
 
@@ -243,14 +267,22 @@ $(document).ready(function(){
         $("#btn-update-category").click(function(){
             var category = $("#edit_category_name").val();
             var cat_slug = $("#edit_category_slug").val();
+            var fd = new FormData();
+            fd.append("id",id);
+            fd.append("category_name",category);
+            fd.append("category_slug",cat_slug);
+            var img = $("#edit_category_file")[0].files;
+            if(img.length > 0 ){
+                fd.append("image",img[0]);
+            }
+
             $.ajax({
                 url:  "{{route('admin.categories.update')}}",
                 type: 'POST',
-                data:{
-                    id:id,
-                    category_name: category,
-                    category_slug:cat_slug
-                },
+                data:fd,
+                contentType:false,
+                processData:false,
+                dataType:"json",
                 success: function(result){
                     if(result.code == 200){ // success
                         toastr.success(result.msg);
