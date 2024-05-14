@@ -8,7 +8,7 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 @stack("meta")
 
-<title>Save Big with Online Promo Codes - Coupons Percent Off</title>
+{{-- <title>Save Big with Online Promo Codes - Coupons Percent Off</title> --}}
 <link rel="icon" href="{{asset('assets/images/logo.jpeg')}}" type="image/x-icon">
 <!-- Favicon-->
 <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">

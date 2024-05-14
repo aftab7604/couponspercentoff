@@ -27,7 +27,8 @@ class StoreSeeder extends Seeder
             'description'=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non modi neque aliquam facilis, facere magnam nam repellat ex iusto, porro nesciunt eaque similique omnis ab placeat repellendus doloribus ea optio.",
             'logo'=>"no-image.png",
             'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
-            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+            <title>Save Big with Online Promo Codes - Coupons Percent Off</title>',
             'status'=>1,
         ];
                

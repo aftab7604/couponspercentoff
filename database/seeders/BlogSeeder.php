@@ -26,7 +26,8 @@ class BlogSeeder extends Seeder
             'content'=>"<h2>Maximizing your savings</h2><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, placeat!",
             'focus_keyword'=>"Maximizing your savings",
             'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
-            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+            <title>Save Big with Online Promo Codes - Coupons Percent Off</title>',
             'status'=>1,
         ];
 
@@ -37,7 +38,8 @@ class BlogSeeder extends Seeder
             'content'=>"<h2>How to Save Money on Shopping - Expert Guide</h2><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, placeat!",
             'focus_keyword'=>"How to Save Money",
             'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
-            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+            <title>Save Big with Online Promo Codes - Coupons Percent Off</title>',
             'status'=>1,
         ];
 
@@ -48,7 +50,8 @@ class BlogSeeder extends Seeder
             'content'=>"<h2>Expert Guide to How to get discounts on shopping</h2><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, placeat!",
             'focus_keyword'=>"How to get discounts on shopping",
             'meta'=>'<meta name="title" content="Save Big with Online Promo Codes - Coupons Percent Off">
-            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">',
+            <meta name="description" content="Get the best deals and save big with our exclusive coupons! Enjoy incredible percent-off discounts on a wide range of products and services. start your savings today!">
+            <title>Save Big with Online Promo Codes - Coupons Percent Off</title>',
             'status'=>1,
         ];
 
