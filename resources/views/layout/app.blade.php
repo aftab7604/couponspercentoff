@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js " lang="en">
 
@@ -34,6 +35,16 @@
   }
 </style>
 @stack("styles")
+
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JWVGL6VT8X"></script> 
+<script> 
+  window.dataLayer = window.dataLayer || []; 
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date()); 
+  gtag('config', 'G-JWVGL6VT8X'); 
+</script>
+<!-- end Google tag (gtag.js) --> 
 </head>
 
 <body class="theme-cyan index2">
@@ -50,7 +61,8 @@
 
 <!-- Top Bar -->
 @include('includes.navbar')
-@include('includes.menu')
+@include('includes.header-category-list')
+{{-- @include('includes.menu') --}}
 
 
 <!-- Right Sidebar -->

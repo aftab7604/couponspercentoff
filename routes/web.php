@@ -25,5 +25,6 @@ Route::get('/privacy-policy', [HomeController::class, 'privacypolicy'])->name("h
 Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name("home.disclaimer");
 Route::get('/about-us', [HomeController::class, 'aboutus'])->name("home.about-us");
 Route::get('/contact-us', [HomeController::class, 'contactus'])->name("home.contact-us");
+Route::get('/faqs', [HomeController::class, 'faqs'])->name("home.faqs");
 
 
