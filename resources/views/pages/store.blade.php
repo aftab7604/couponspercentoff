@@ -84,7 +84,7 @@
     </div>
 </section> 
 
-@if($copy_coupon['code'])
+@if(isset($copy_coupon['code']))
 {{-- Copy Coupon Modal --}}
 <div class="modal fade" id="copyCouponModal" tabindex="-1" aria-labelledby="copyCouponModalLabel" aria-hidden="true">
     <div class="modal-dialog">
