@@ -148,7 +148,10 @@ class CategoryController extends Controller
                 $fileName = $file->hashName();
                 $destinationPath = "uploads/category";
                 $file->move($destinationPath,$fileName);
-                File::delete(public_path($destinationPath."/".$currentData['logo']));
+                if($currentData['logo'] != "no-image.png"){
+                    File::delete(public_path($destinationPath."/".$currentData['logo']));
+                }
+                
                 $update_data['logo'] = $fileName;
             }
 
