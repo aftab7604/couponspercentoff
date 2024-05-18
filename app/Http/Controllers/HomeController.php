@@ -82,4 +82,9 @@ class HomeController extends Controller
         $data['categories'] = Category::where(['status'=>1])->get()->toArray();
         return view("pages.blogs",$data);
     }
+
+    public function faqs(){
+        $data['page'] = Page::where(['slug'=>'faqs'])->first()->toArray();
+        return view("pages.faqs",$data);
+    }
 }
