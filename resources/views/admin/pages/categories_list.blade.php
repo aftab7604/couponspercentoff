@@ -234,7 +234,7 @@ $(document).ready(function(){
         })
     });
 
-    $(".btn-edit").click(function(){
+    $(document).on("click",".btn-edit",function(){
         var id = $(this).data("id");
         var name = $(this).data("name");
         var slug = $(this).data("slug");
@@ -264,7 +264,7 @@ $(document).ready(function(){
             });
         })
 
-        $("#btn-update-category").click(function(){
+        $(document).on("click","#btn-update-category",function(){
             var category = $("#edit_category_name").val();
             var cat_slug = $("#edit_category_slug").val();
             var fd = new FormData();
