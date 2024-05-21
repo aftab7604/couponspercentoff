@@ -145,6 +145,10 @@
         line-height: 22px;
         font-family: 'Inter', sans-serif !important;
     }
+
+    .container-fluid{
+        margin-top:50px;
+    }
    
 </style>
 @endpush

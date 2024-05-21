@@ -6,10 +6,23 @@
                 <a href="{{url('category/'.$category['slug'])}}">
                     <img src="{{asset('uploads/category/'.$category['logo'])}}" alt="{{$category['name']}}" width="58px" height="58px">
                     <span>{{$category['name']}}</span>
+
                 </a>
             </li>
             @empty
             @endforelse
+            <li class="category-more">
+                <a href="">
+                    <img src="{{asset('uploads/category/no-image.png')}}" alt="more" width="58px" height="58px">
+                    <span>&nbsp;&nbsp;&nbsp; More &#x25BE;</span>
+                </a>
+                <ul class="submenu">
+                    <a href=""><li>Teach</li></a>
+                    <a href=""><li>Health</li></a>
+                    <a href=""><li>Entertainment</li></a>
+                    <a href=""><li>Family</li></a>
+                </ul>
+            </li>
             
             
             {{-- <li><a href="javascript:void(0)">UI Kit</a>
@@ -50,3 +63,45 @@
         </ul>
     </div>
 </div>
+<style>
+    .category-container {
+        background-color:PaleTurquoise;
+    }
+
+    .category-more{
+        position:relative;
+    }
+
+    .submenu{
+        margin:auto;
+        top:106px;
+        left:-95px;
+        position:absolute;
+        list-style-type:none;
+        line-height:40px;
+        display:none; 
+    }
+    
+    .submenu li{
+        background-color:PaleTurquoise;
+        border-bottom:1px solid #ddd;
+        text-align:center;
+        color:black;
+        width:200px;
+        height:50px;
+        margin:-10px;
+    }
+
+    .category-more:hover .submenu{
+        display:block; 
+    }
+
+    .category-more:hover img {
+        transform: scale(1);
+        box-shadow: 0 0 15px #d35400; 
+    }
+
+</style>
+@push('styles')
+    
+@endpush
